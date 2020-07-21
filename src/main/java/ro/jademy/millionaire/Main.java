@@ -29,12 +29,11 @@ public class Main {
         // initialize game
         Game game = new Game(difficultyZeroQuestions, difficultyOneQuestions, difficultyTwoQuestions, difficultyThreeQuestions);
 
-        // TODO: start the game
-        // game.start();
+        // start the game
+        game.start();
     }
 
     private static List<Question> getRandomQuestions(int nrOfQuestions, int difficulty) {
-        // TODO
         // loop through all questions
         // get all questions of given difficulty
         // loop through sub-list until nrOfQuestions and select random items by index

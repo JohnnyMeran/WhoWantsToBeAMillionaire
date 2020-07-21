@@ -1,4 +1,4 @@
-package ro.jademy.millionaire;
+package ro.jademy.millionaire.model;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,12 +31,12 @@ public class Game {
             new Level(15, 3, 1000000, 500000)
     );
 
-    private List<Question> difficultyZeroQuestions = new ArrayList<Question>();
-    private List<Question> difficultyOneQuestions = new ArrayList<Question>();
-    private List<Question> difficultyTwoQuestions = new ArrayList<Question>();
-    private List<Question> difficultyThreeQuestions = new ArrayList<Question>();
+    private List<Question> difficultyZeroQuestions = new ArrayList<>();
+    private List<Question> difficultyOneQuestions = new ArrayList<>();
+    private List<Question> difficultyTwoQuestions = new ArrayList<>();
+    private List<Question> difficultyThreeQuestions = new ArrayList<>();
 
-    private List<Lifeline> lifelines = new ArrayList<Lifeline>();
+    private List<Lifeline> lifelines = new ArrayList<>();
     private Level currentLevel = LEVELS.get(0);
 
     public Game(List<Question> difficultyZeroQuestions, List<Question> difficultyOneQuestions, List<Question> difficultyTwoQuestions, List<Question> difficultyThreeQuestions) {

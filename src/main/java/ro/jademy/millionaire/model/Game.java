@@ -1,8 +1,6 @@
 package ro.jademy.millionaire.model;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Game {
 
@@ -12,7 +10,7 @@ public class Game {
     //      -> level [6, 10]   -> difficulty 1
     //      -> level [11, 14]  -> difficulty 2
     //      -> level 15        -> difficulty 3
-
+    private Scanner inputPlayer = new Scanner(System.in);
     private static final List<Level> LEVELS = Arrays.asList(
             new Level(1, 0, 100, 0),
             new Level(2, 0, 200, 0),
@@ -55,8 +53,33 @@ public class Game {
         // TODO
         // show welcome screen
         // optionally: show rules (rounds, lifelines, etc) & commands
+        showWelcome();
+        showRules();
 
         // show current level question
+        while (currentLevel.getDifficultyLevel() == 0) {
+            showQuestion(difficultyZeroQuestions);
+            showLifeline(lifelines);
+            while (!readInput()){
+
+            }
+        }
+        /*
+        while (currentLevel.getDifficultyLevel() == 1) {
+            showQuestion(difficultyOneQuestions);
+            showLifeline(lifelines);
+            readInput();
+        }
+        while (currentLevel.getDifficultyLevel() == 2) {
+            showQuestion(difficultyTwoQuestions);
+            showLifeline(lifelines);
+            readInput();
+        }
+        while (currentLevel.getDifficultyLevel() == 3) {
+            showQuestion(difficultyThreeQuestions);
+            showLifeline(lifelines);
+            readInput();
+        }*/
         // read command from player
         //     - if lifeline -> apply lifeline
         //     - if end game -> end game
@@ -65,13 +88,51 @@ public class Game {
         //               - if answer incorrect -> end game (calculate end sum, show bye bye message etc.)
 
 
-        showWelcome();
-        showRules();
     }
 
     private void showRules() {
     }
 
     private void showWelcome() {
+    }
+
+    private void showQuestion(List<Question> questionList) {
+        if (questionList.size() != 0) {
+            System.out.println(questionList.get(0).getText());
+            questionList.get(0).showAnswers();
+        } else {
+            currentLevel.incrementCurrentLevelFrom(LEVELS);
+        }
+    }
+
+    private void showLifeline(List<Lifeline> lifelines) {
+        if (lifelines.size() != 0) {
+            System.out.println("Your Lifelines: ");
+            for (Lifeline lifeline : lifelines) {
+                System.out.println("H " + lifeline.getName());
+            }
+        }
+    }
+
+    private boolean readInput() {
+        switch (inputPlayer.next().toLowerCase()) {
+            case "a":return true;
+            case "b":
+            case "c":
+            case "d":
+            case "h"://use lifeline
+            case "x"://exit
+            case "i": showRules(); break;
+
+        }
+        return false;
+    }
+
+    private void checkAnswerQuestion(List<Question> questionList) {
+
+    }
+
+    private void endGame() {
+
     }
 }

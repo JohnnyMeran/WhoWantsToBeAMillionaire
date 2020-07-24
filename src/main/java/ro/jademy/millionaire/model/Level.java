@@ -1,5 +1,7 @@
 package ro.jademy.millionaire.model;
 
+import java.util.List;
+
 public class Level {
 
     private int number;
@@ -44,5 +46,18 @@ public class Level {
 
     public void setRewardBreakout(int rewardBreakout) {
         this.rewardBreakout = rewardBreakout;
+    }
+
+    public void incrementCurrentLevelFrom(List<Level> levels){
+        for (Level indexCurrentLevel:levels){
+            if(indexCurrentLevel.equals(this)){
+                if(levels.get(levels.indexOf(indexCurrentLevel)+1)!= null){
+                    this.number = levels.get(levels.indexOf(indexCurrentLevel)).number;
+                    this.difficultyLevel = levels.get(levels.indexOf(indexCurrentLevel)).difficultyLevel;
+                    this.reward = levels.get(levels.indexOf(indexCurrentLevel)).reward;
+                    this.rewardBreakout = levels.get(levels.indexOf(indexCurrentLevel)).rewardBreakout;
+                }
+            }
+        }
     }
 }

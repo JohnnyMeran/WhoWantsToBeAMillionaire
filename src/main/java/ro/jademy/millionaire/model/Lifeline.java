@@ -24,4 +24,8 @@ public class Lifeline {
     public void setUsed(boolean used) {
         this.used = used;
     }
+
+    public void useLifeline(){
+        this.used = true;
+    }
 }

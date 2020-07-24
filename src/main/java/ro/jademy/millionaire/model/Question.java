@@ -1,6 +1,7 @@
 package ro.jademy.millionaire.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Question {
@@ -47,5 +48,17 @@ public class Question {
 
     public void setDifficulty(int difficulty) {
         this.difficulty = difficulty;
+    }
+
+    public void showAnswers() {
+        ArrayList<Answer> answers = new ArrayList<>();
+        answers.add(this.correctAnswer);
+        answers.addAll(this.wrongAnswers);
+        Collections.shuffle(answers);
+        char apex = 'A';
+        for (int i = 0; i < 4; i++) {
+            System.out.println(apex + " " + answers.get(i).getText());
+            apex++;
+        }
     }
 }

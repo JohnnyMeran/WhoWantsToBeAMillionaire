@@ -61,7 +61,7 @@ public class Game {
             showQuestion(difficultyZeroQuestions);
             showLifeline(lifelines);
             while (!readInput()){
-
+            //Switch.
             }
         }
         /*
